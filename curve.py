@@ -57,7 +57,7 @@ def draw_line(p1, p2):
     x1, y1 = p1
     x2, y2 = p2
 
-    for i in range(0, 200, 2):
+    for i in range(-100, 100, 2):
         t = i / 100
         x = (1 - t) * x1 + t * x2
         y = (1 - t) * y1 + t * y2
