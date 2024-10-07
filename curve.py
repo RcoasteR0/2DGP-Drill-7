@@ -57,7 +57,7 @@ def draw_line(p1, p2):
     x1, y1 = p1
     x2, y2 = p2
 
-    for i in range(-100, 100, 2):
+    for i in range(0, 100, 2):
         t = i / 100
         x = (1 - t) * x1 + t * x2
         y = (1 - t) * y1 + t * y2
@@ -87,10 +87,21 @@ def draw_curve(a1, a2, b1, b2):
 
 
 def draw_curve_3_points(p1, p2, p3):
-    # fill here
-    pass
+    draw_big_point(p1)
+    draw_big_point(p2)
+    draw_big_point(p3)
 
+    x1, y1 = p1
+    x2, y2 = p2
+    x3, y3 = p3
 
+    for i in range(0, 100, 2):
+        t = i / 100
+        x = (2 * t ** 2 - 3 * t + 1) * x1 + (-4 * t ** 2 + 4 * t) * x2 + (2 * t ** 2 - t) * x3
+        y = (2 * t ** 2 - 3 * t + 1) * y1 + (-4 * t ** 2 + 4 * t) * y2 + (2 * t ** 2 - t) * y3
+        draw_point((x, y))
+
+    draw_point(p3)
 
 def draw_curve_4_points(p1, p2, p3, p4):
     draw_big_point(p1)
@@ -135,6 +146,7 @@ p2 = -50, 100
 #draw_line(a1, a2)
 #draw_line(b1, b2)
 #draw_curve(a1, a2, b1, b2)
-draw_line(p1, p2)
+#draw_line(p1, p2)
+draw_curve_3_points((-350, -100), (-50, 150), (150, -100))
 
 turtle.done()
