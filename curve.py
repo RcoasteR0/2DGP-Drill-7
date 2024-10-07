@@ -147,7 +147,8 @@ p2 = -50, 100
 #draw_line(b1, b2)
 #draw_curve(a1, a2, b1, b2)
 #draw_line(p1, p2)
-draw_curve_3_points((-350, -100), (-50, 200), (150, -100))
-draw_curve_3_points((-50, 200), (150, -100), (350, 300))
+#draw_curve_3_points((-350, -100), (-50, 200), (150, -100))
+#draw_curve_3_points((-50, 200), (150, -100), (350, 300))
+draw_curve_4_points((-350, -100), (-50, 200), (150, -100), (350, 300))
 
 turtle.done()
