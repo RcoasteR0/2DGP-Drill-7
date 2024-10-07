@@ -50,7 +50,40 @@ def draw_point(p):
     turtle.goto(p)
     turtle.dot(5, random.random(), random.random(), random.random())
 
+def draw_line(p1, p2):
+    draw_big_point(p1)
+    draw_big_point(p2)
 
+    x1, y1 = p1
+    x2, y2 = p2
+
+    for i in range(0, 100 + 2, 2):
+        t = i / 100
+        x = (1 - t) * x1 + t * x2
+        y = (1 - t) * y1 + t * y2
+        draw_point((x, y))
+
+def draw_curve(a1, a2, b1, b2):
+    a1x, a1y = a1
+    a2x, a2y = a2
+    b1x, b1y = b1
+    b2x, b2y = b2
+
+    for i in range(0, 100 + 2, 2):
+        t = i / 100
+        # a 선분 위의 점 계산
+        ax = (1 - t) * a1x + t * a2x
+        ay = (1 - t) * a1y + t * a2y
+        draw_point((ax, ay))
+
+        bx = (1 - t) * b1x + t * b2x
+        by = (1 - t) * b1y + t * b2y
+        draw_point((bx, by))
+
+        x = (1 - t) * ax + t * bx
+        y = (1 - t) * ay + t * by
+
+        draw_point((x, y))
 
 
 def draw_curve_3_points(p1, p2, p3):
@@ -92,5 +125,13 @@ def draw_curve_4_points(p1, p2, p3, p4):
 
 prepare_turtle_canvas()
 
+a1 = -94, 223
+a2 = -158, -54
+b1 = 154, -205
+b2 = 131, 293
+
+#draw_line(a1, a2)
+#draw_line(b1, b2)
+draw_curve(a1, a2, b1, b2)
 
 turtle.done()
